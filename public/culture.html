@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture</title>
+    <link rel="icon" type="image/x-icon" href="./Assets/ballSVG.png">
+    <link rel="stylesheet" href="./CSS/culture.css">
+    <style>
+        /* Base state: hidden and fully transparent */
+        #fullscreenMenu {
+            opacity: 0;
+            visibility: hidden; /* Ensures it's not interactable */
+            transition: opacity 0.7s ease, visibility 0s 0.3s; /* Delay visibility toggle to allow fade-out */
+        }
+
+        /* Show state: visible and fully opaque */
+        #fullscreenMenu.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.7s ease, visibility 0s 0s; /* Immediate visibility change when showing */
+        }
+    </style>
+
+</head>
+<body class="flex flex-col justify-between h-screen">
+
+    <nav class="bg-white py-4 text-custom-green md:bg-custom-green md:text-white flex flex-row items-center justify-start md:justify-between md:px-6 flex-wrap">
+        <button id="sideBarBtn" data-collapse-toggle="navbar-default" type="button" class="absolute top-1 left-1 inline-flex items-center p-2 w-12 h-12 justify-center rounded-lg md:hidden focus:outline-none focus:ring-2 dark:hover:bg-slate-200" aria-controls="navbar-default" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#00C853"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </button>
+        <a href="./homePage.html" class="font-normal md:font-bold text-2xl text-center w-full md:w-fit">YALLA VAMOS 2030</a>
+        
+        <div class="hidden md:block" id="navbar-default">
+            <ul class="flex flex-row gap-x-8 text-2xl">
+                <li>
+                    <a class="transition ease-in duration-300 hover:text-custom-blue " href="./homePage.html" >Accueil</a>
+                </li>
+                <li>
+                    <a class="font-bold transition ease-in duration-300 hover:text-custom-blue " href="./culture.html">Culture</a>
+                </li>
+                <li>
+                    <a class="transition ease-in duration-300 hover:text-custom-blue " href="./contactPage.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="w-full size-0.5 mt-1 bg-custom-green md:hidden">
+        
+        <!-- Menu plein écran caché par défaut -->
+        <div id="fullscreenMenu" class=" fixed inset-0 bg-white z-50 hidden pl-12 pt-12 text-3xl text-custom-green menu-links">
+            <button id="menuButtonClose" class="absolute top-4 left-4 text-4xl transform hover:scale-110 hover:shadow-lg hover:text-orange-500 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#00C853"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+            </button>
+            <div class="flex flex-col mt-10 ml-6"> 
+                <a href="./homePage.html" class="underline mb-6">Accueil</a>
+                <a href="./culture.html" class="underline mb-6">Culture</a>
+                <a href="./contactPage.html" class="underline mb-6">Contact</a>
+            </div>
+            <div class="absolute overflow-hidden w-100 h-100" style=" right:-40%; bottom:-10%;">
+                <img src="./Assets/ballSVG.png" alt="Ball" class="w-full h-full" style="border-radius: 100%;">
+            </div>
+        </div>
+    </nav>
+    
+    
+
+
+    <div class="flex flex-col justify-center items-center text-custom-green">
+        <div class="mt-8 mb-8 ml-4 mr-4 md:w-full md:pl-20 md:mb-12">
+            <h1 class="text-center font-bold text-5xl md:text-7xl">Explorez notre culture</h1>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="mt-4 grid gap-8 px-8">
+        <!-- Rabat Section -->
+         <div class="city-section">
+            <h2 class="text-2xl font-bold text-center md:text-left text-custom-green">RABAT</h2>
+            <div class="grid md:grid-cols-2 gap-0 md:gap-8 md:items-center">
+                <div class="p-4 md:p-0 order-2 md:order-1">
+                    <p class="mt-2 md:mt-4 text-justify">
+                        Rabat est une ville culturelle chargée d'histoire. De nombreux chefs-d'œuvre décorent ses rues et ses places. Visitez la Kasbah des Oudayas : silhouette majestueuse et formidable qu'adoucissent les jardins alentours. Non loin des murailles s'élèvent les murs du Chellah, une nécropole du temps des Mérinides. En franchir l'enceinte, c'est pénétrer dans un autre monde : vous vous promenez au milieu d'antiques vestiges, parmi les jardins et les cigognes. Rabat est aussi une capitale moderne éco-responsable qui fait la part belle aux espaces verts. Des parcs la jalonnent, tel le jardin d'essai botanique ou les Jardins Exotiques de Bouknadel à quelques kilomètres de la ville. Et puis, Rabat ménage son littoral : sur les bords de l'Atlantique, elle déploie des kilomètres de plages aménagées qui mènent jusqu'à la voisine Casablanca. Moderne aussi par ses infrastructures et festivals qui participent à votre confort et à l'animation de la capitale. Aéroport, tram, centres commerciaux, cafés et restaurants, toutes les commodités y sont mises à votre portée. Enfin, il y a la musique que Rabat célèbre comme aucune autre : Mawazine, Jazz au Chellah et bien d'autres emplissent l'atmosphère de sons et de rythmes venus du monde entier ! Rabat, c'est tout cela, une ville où les trésors du passé côtoient les réalisations les plus modernes et respectueuses de l'environnement ! </p>
+                </div>
+                <div class="carousel order-1 md:order-2">
+                    <div class="carousel-images" id="carouselImagesRabat">
+                        <div class="carousel-image" style="background-image: url('./Assets/rabat1.png');"></div>
+                        <div class="carousel-image" style="background-image: url('./Assets/rabat2.png');"></div>
+                        <div class="carousel-image" style="background-image: url('./Assets/rabat3.png');"></div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button id="prev" class="rounded-full p-2 carousel-control-prev" onclick="prevSlide('carouselImagesRabat')">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#1E88E5">
+                                <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                            </svg>
+                        </button>
+                        <button id="next" class="rounded-full p-2 carousel-control-right" onclick="nextSlide('carouselImagesRabat')">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#1E88E5">
+                                <path d="M400-240l240-240-240-240-56 56 184 184-184 184 56 56Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Casablanca Section -->
+         <div class="city-section">
+            <h2 class="text-2xl font-bold text-center md:mb-4 md:text-left text-custom-green">CASABLANCA</h2>
+            <div class="grid md:grid-cols-2 gap-0 md:gap-8 md:items-center">
+                <div class="carousel order-1 md:order-1">
+                    <div class="carousel-images" id="carouselImagesCasablanca">
+                        <div class="carousel-image" style="background-image: url('./Assets/casablanca1.png');"></div>
+                        <div class="carousel-image" style="background-image: url('./Assets/casablanca2.png');"></div>
+                        <div class="carousel-image" style="background-image: url('./Assets/casablanca3.png');"></div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button id="prev" class="rounded-full p-2" onclick="prevSlide('carouselImagesCasablanca')">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#1E88E5">
+                                <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                            </svg>
+                        </button>
+                        <button id="next" class="rounded-full p-2" onclick="nextSlide('carouselImagesCasablanca')">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#1E88E5">
+                                <path d="M400-240l240-240-240-240-56 56 184 184-184 184 56 56Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                </div>
+                <div class="p-4 order-2 md:order-2">
+                    <p class="mt-2 md:mt-4 text-justify">
+                        Des artères bordées par des palmiers, de grands immeubles d'affaires et l'Atlantique qui ouvre sur le monde : Casablanca est le poumon économique du Maroc, une métropole bouillonnante sans cesse en éveil. Les infrastructures modernes se mêlent aux quartiers de charme, entre héritage arabo-musulman et legs de la période coloniale. Découvrez-en toutes les nuances : promenez-vous dans la médina, l'une des plus tardives du Maroc, traversez le centre et ses immeubles art-déco, rejoignez la mosquée Hassan II, merveille de l'architecture construite sur l'eau. Laissez-vous emporter par le côté festif de la ville. Profitez de la corniche, de ses clubs, des festivals aussi : le Festival de Casablanca, Jazzablanca ou encore Tremplin L'Boulevard. Quant au littoral, il est bordé de plages aménagées pour votre confort. Sur place, plongée, jet-ski ou plaisance sont autant d'activités qui agrémentent votre séjour. À Casablanca, on ne s'ennuie pas ! Entre culture et détente, la cite blanche ne manque décidément pas d'attraits.</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Marrakech Section -->
+         <div class="city-section">
+        <h2 class="text-2xl font-bold text-center md:text-left text-custom-green">MARRAKECH</h2>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="p-4 md:p-0 order-2 md:order-1">
+                <p class="mt-2 md:mt-4 text-justify">
+                    Entre tradition et modernité, Marrakech est la promesse de sensations incomparables. En déambulant sur la place Jemaa El-Fna et dans les souks aux couleurs chatoyantes et aux odeurs orientales, la ville rouge répond d'un claquement de doigts à vos envies de dépaysement. Balades en calèche, terrasses ensoleillées, artistes ambulants et autres activités de jour comme de nuit viendront rythmer votre séjour au Maroc. Vous pourrez admirer toute la richesse architecturale de la Médina en visitant l'un de ses nombreux riads, des petits palais orientaux organisés autour d'un patio central, ou bien encore vous ressourcer à la Ménara, un vaste jardin avec bassin emblématique de la ville. Car, Marrakech laisse le choix à ses visiteurs en puisant dans son incroyable diversité. Il suffit de quitter l'enceinte des remparts pour être plongé dans le Maroc contemporain. Les quartiers de Guéliz et de l'Hivernage proposent les infrastructures les plus modernes, des boutiques de luxe et de prêt-à-porter internationales ainsi que de larges avenues aérées; le tout dans le respect du cachet propre à Marrakech. Signe d'une effervescence économique grandissante, ce sont aussi des lieux festifs et culturels avec la présence du Palais des Congrès et du splendide Théâtre Royal. Profitez de Marrakech en mode nocturne en investissant les nombreux lieux à thème, boîtes branchées et soirées traditionnelles qui reflètent la joie de vivre de ses habitants.</p>
+            </div>
+            <div class="carousel order-1 md:order-2">
+                <div class="carousel-images" id="carouselImagesMarrakech">
+                    <div class="carousel-image" style="background-image: url('./Assets/marrakech1.png');"></div>
+                    <div class="carousel-image" style="background-image: url('./Assets/marrakech2.png');"></div>
+                    <div class="carousel-image" style="background-image: url('./Assets/marrakech3.png');"></div>
+                </div>
+                <div class="carousel-controls">
+                    <button id="prev" class="rounded-full p-2" onclick="prevSlide('carouselImagesMarrakech')">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#1E88E5">
+                            <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                        </svg>
+                    </button>
+                    <button id="next" class="rounded-full p-2" onclick="nextSlide('carouselImagesMarrakech')">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#1E88E5">
+                            <path d="M400-240l240-240-240-240-56 56 184 184-184 184 56 56Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- Footer -->
+    <footer class="bg-custom-green text-white pt-5 md:flex md:flex-wrap ">
+        <div class="px-6 md:px-16 md:w-6/12">
+            <h2 class="font-bold text-xl">Liens rapides</h2>
+            <a class="ml-4 w-full block" href="./homePage.html">Accueil</a>
+            <a class="ml-4 w-full block" href="./culture.html">Culture</a>                    
+            <a class="ml-4 w-full block" href="./contactPage.html">Contact</a>
+        </div>
+        <div class="px-6 py-3 md:px-16 md:w-6/12 md:flex md:flex-col">
+            <h2 class="font-bold text-xl  md:text-right">Suivez-nous</h2>
+            <div class="flex flex-row md:justify-end">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="40px" height="40px" fill-rule="nonzero"><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M12,2.00781c-5.523,0 -10,4.477 -10,10c0,5.523 4.477,10 10,10c5.523,0 10,-4.477 10,-10c0,-5.522 -4.477,-10 -10,-10zM12,3.50781c4.687,0 8.5,3.813 8.5,8.5c0,4.51414 -3.54008,8.20758 -7.98828,8.47461v-6.98047h2.74023c0.27048,0.00383 0.52206,-0.13828 0.65842,-0.3719c0.13635,-0.23362 0.13635,-0.52257 0,-0.75619c-0.13635,-0.23362 -0.38794,-0.37573 -0.65842,-0.3719h-2.74023v-1.24609c0,-0.70002 0.54998,-1.25 1.25,-1.25h1.49023c0.27048,0.00383 0.52206,-0.13828 0.65842,-0.3719c0.13635,-0.23362 0.13635,-0.52257 0,-0.75619c-0.13635,-0.23362 -0.38794,-0.37573 -0.65842,-0.3719h-1.49023c-1.50998,0 -2.75,1.24002 -2.75,2.75v1.24609h-1.25977c-0.27048,-0.00383 -0.52206,0.13828 -0.65842,0.3719c-0.13635,0.23362 -0.13635,0.52257 0,0.75619c0.13635,0.23362 0.38794,0.37573 0.65842,0.3719h1.25977v6.94531c-4.22215,-0.49207 -7.51172,-4.08738 -7.51172,-8.43945c0,-4.687 3.813,-8.5 8.5,-8.5z"/></g></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="48px" height="48px" fill-rule="nonzero"><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(4,4)"><path d="M31.82031,12c-18.381,0 -19.82031,1.43931 -19.82031,19.82031v0.35938c0,18.381 1.43931,19.82031 19.82031,19.82031h0.35938c18.381,0 19.82031,-1.43931 19.82031,-19.82031v-0.17969c0,-18.548 -1.452,-20 -20,-20zM28,16h8c11.129,0 12,0.871 12,12v8c0,11.129 -0.871,12 -12,12h-8c-11.129,0 -12,-0.871 -12,-12v-8c0,-11.129 0.871,-12 12,-12zM41.99414,20c-1.105,0.003 -1.99714,0.90086 -1.99414,2.00586c0.003,1.105 0.90086,1.99714 2.00586,1.99414c1.105,-0.003 1.99714,-0.90086 1.99414,-2.00586c-0.003,-1.105 -0.90086,-1.99714 -2.00586,-1.99414zM31.97656,22c-5.522,0.013 -9.98956,4.50144 -9.97656,10.02344c0.013,5.522 4.50144,9.98956 10.02344,9.97656c5.522,-0.013 9.98956,-4.50144 9.97656,-10.02344c-0.013,-5.522 -4.50144,-9.98956 -10.02344,-9.97656zM31.98633,26c3.313,-0.008 6.00567,2.67333 6.01367,5.98633c0.007,3.313 -2.67333,6.00567 -5.98633,6.01367c-3.313,0.008 -6.00567,-2.67233 -6.01367,-5.98633c-0.008,-3.313 2.67333,-6.00567 5.98633,-6.01367z"/></g></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="40px" height="40px" fill-rule="nonzero"><g fill="none" fill-rule="nonzero" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)"><path d="M5.296,15.689c-0.062,3.099 2.27,5.352 6,5.811c-1.399,1.375 -3.73,1.833 -6.527,1.833c1.865,2.292 5.128,3.667 8.391,3.667c10.482,0 14.229,-8.005 14.229,-15.347c1.043,-0.992 1.266,-1.461 1.611,-2.577l-0.917,-0.524c0,0 0.897,-1.318 0.897,-2.689c-1.35,0.076 -2.301,0.327 -3.294,0.991c-1.214,-1.199 -2.377,-1.854 -4.016,-1.854c-3.148,0 -5.345,2.219 -5.287,5.473c-5.087,-0.431 -8.817,-2.265 -12.773,-4.598c-1.264,2.507 -0.706,5.541 3.024,6.458"/><path d="M4.022,10.93c-0.862,2.98 0.977,5.539 4.011,5.961"/></g></g></svg>
+            </div>
+        </div>
+        <hr class="w-full size-0.5 bg-white mt-5">
+        <h2 class="w-full text-center">© 2024 Yalla Vamos 2030. Tous droits réservés</h2>
+    </footer>
+
+    <script>
+        
+
+        let currentIndex = {
+            'carouselImagesRabat': 0,
+            'carouselImagesCasablanca': 0,
+            'carouselImagesMarrakech': 0
+        };
+
+        function showSlide(carouselId, index) {
+            const carouselImages = document.getElementById(carouselId);
+            const slides = carouselImages.children;
+            const totalSlides = slides.length;
+            currentIndex[carouselId] = (index + totalSlides) % totalSlides;
+            carouselImages.style.transform = `translateX(-${currentIndex[carouselId] * 100}%)`;
+        }
+
+        function nextSlide(carouselId) {
+            showSlide(carouselId, currentIndex[carouselId] + 1);
+        }
+
+        function prevSlide(carouselId) {
+            showSlide(carouselId, currentIndex[carouselId] - 1);
+        }
+
+        const sideBarBtn = document.getElementById('sideBarBtn');
+        const fullscreenMenu = document.getElementById('fullscreenMenu');
+        const menuButtonClose = document.getElementById('menuButtonClose');
+
+        // Function to show the menu with fade-in effect
+        function showMenu() {
+            fullscreenMenu.classList.remove('hidden');
+            setTimeout(() => fullscreenMenu.classList.add('show'), 10); // Delay to trigger transition
+        }
+
+        // Function to hide the menu with fade-out effect
+        function hideMenu() {
+            fullscreenMenu.classList.remove('show');
+            setTimeout(() => fullscreenMenu.classList.add('hidden'), 300); // Matches CSS transition duration
+        }
+
+        // Event listeners for showing and hiding the menu
+        sideBarBtn.addEventListener('click', showMenu);
+        menuButtonClose.addEventListener('click', hideMenu);
+
+    </script>
+</body>
+</html>
